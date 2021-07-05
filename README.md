@@ -1,5 +1,7 @@
 # Weakly-supervised NER fine-tuning for Coleridge dataset detection
 
+This is a part of our 4th place winning solution for the Coleridge dataset detection Kaggle competition.
+
 Weak supervision sources
 (1) acronym detection (2) the government database (3) spacy's pretrained NER model
 
@@ -32,7 +34,17 @@ python -m spacy train spacy-configs/config.cfg -o trained_model --paths.train ./
 python try_trained_model.py
 ```
 
+The trained model will saved to `trained_model/model-best`
+
 # Inference
 
-TODO: link notebook
+Load the trained model as spacy pipeline:
+```
+nlp = spacy.load("trained_model/model-best")
+```
+
+* Example notebook: https://www.kaggle.com/naotous/run-finetuned-ner-offline
+* Winning solution: https://www.kaggle.com/osciiart/210622-det1-neru-train-govt
+
+
 
